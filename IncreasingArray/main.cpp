@@ -22,11 +22,13 @@ int32_t main() {
         cin >> num_array[i];
     }
 
+    int max_for_now = num_array[0];
+
     for (int i = 1; i < num; i++) {
-        if (num_array[i] < num_array[i - 1]) {
-            answer += (num_array[i - 1] - num_array[i]);
-            num_array[i] = num_array[i - 1];
+        if (num_array[i] < max_for_now) {
+            answer += max_for_now - num_array[i];
         }
+        max_for_now = max(max_for_now, num_array[i]);
     }
     cout << answer;
     
